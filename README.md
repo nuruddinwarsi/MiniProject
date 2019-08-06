@@ -1,1 +1,1 @@
-# iksulaMP
+# IKSULA MINIPROJECT
