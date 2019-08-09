@@ -35,16 +35,16 @@
 
         $row = $result->fetch_assoc();
 
-        if(isset($row)){
+        if($row){
             if(password_verify($pw,$row['pw'])){
                 // echo "LOGIN SUCCESSFULL";
                 if($row['usr_role']=="admin"){
                     // echo "ADMIN";
-                    $_SESSION["uname"]=$uname;
+                    $_SESSION["role"]=$row['usr_role'];
                     header("Location: adminpage.php");
                 }else{
                     // echo "CUSTOMER";
-                    $_SESSION["uname"] = $uname;
+                    $_SESSION["role"] = $row['usr_role'];
                     header("Location: dashboard.php");
                 }
             }else{

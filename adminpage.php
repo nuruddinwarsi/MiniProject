@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("connect.php");
-    if(!isset($_SESSION["uname"]) || $_SESSION["uname"]!="admin"){
+    if(!isset($_SESSION["role"]) || $_SESSION["role"]!="admin"){
         header("Location: index.php");
     }
 ?>
@@ -19,8 +19,8 @@
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
         <fieldset>
             <legend>User Details</legend>
-            <!-- <label for="usr_role">User role</label>
-            <input type="text" name="usr_role" value="customer" disabled><br> -->
+            <label for="usr_role">User role</label>
+            <input type="text" name="usr_role" value="customer" disabled><br>
             <label for="uname">Username</label>
             <input type="text" name="uname"><br>
             <label for="email">Email</label>
@@ -88,7 +88,7 @@
         $uname = $_POST["uname"];
         $email = $_POST["email"];
         $pw = $_POST["pw"];
-        // $usr_role = $_POST["usr_role"];
+        $usr_role = $_POST["usr_role"];
         $fname = $_POST["fname"];        
         $lname = $_POST["lname"];
         $tcode = $_POST["tcode"];
@@ -117,9 +117,12 @@
         //         '$street','$city','$usr_state','$zip','$sec_fname','$sec_lname','$sec_reln','$sec_street',
         //         '$sec_city','$sec_state','$sec_zip','$sec_email','$sec_phone','$house_prog','$service_prog')";
 
-        $sql = "INSERT INTO users(uname,email,pw,fname,lname,tcode,h_phone,building,street,city,usr_state,zip,
-                                sec_fname,sec_lname,sec_reln,sec_street,sec_city,sec_state,sec_zip,sec_email,
-                                sec_phone,house_prog,service_prog) VALUES()";
+        $sql = "INSERT INTO users(uname,email,pw,usr_role,fname,lname,tcode,h_phone,building,street,city,usr_state,
+                            zip,sec_fname,sec_lname,sec_reln,sec_street,sec_city,sec_state,sec_zip,sec_email,
+                            sec_phone,house_prog,service_prog) VALUES('$uname','$email','$pw','$usr_role',
+                            '$fname','$lname','$tcode','$h_phone','$building','$street','$city','$usr_state',
+                            '$zip','$sec_fname','$sec_lname','$sec_reln','$sec_street','$sec_city','$sec_state',
+                            '$sec_zip','$sec_email','$sec_phone','$house_prog','$service_prog')";
 
         $result = $mysqli->query($sql);
         if($result){
