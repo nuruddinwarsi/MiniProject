@@ -8,16 +8,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>MINIPROJECT</title>
 </head>
 <body>
-    <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
-        <label for="uname">Username</label>
-        <input type="text" name="uname" placeholder="Enter username"><br>
-        <label for="pw">Password</label>
-        <input type="password" name="pw" placeholder="password"><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+    <div class="jumbotron">
+    <h2>LOGIN FORM</h2>
+        <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+        <div class="form-group">
+            <label for="uname">Username</label>
+            <input class="form-control" type="text" name="uname" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="pw">Password</label>
+            <input class="form-control" type="password" name="pw" placeholder="password">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+   
+    </div>
 </body>
 </html>
 
@@ -41,10 +54,12 @@
                 if($row['role']=="admin"){
                     // echo "ADMIN";
                     $_SESSION["role"]=$row['role'];
+                    $_SESSION["uname"]=$row['uname'];
                     header("Location: adminpage.php");
                 }else{
                     // echo "CUSTOMER";
                     $_SESSION["role"] = $row['role'];
+                    $_SESSION["uname"]=$row['uname'];
                     header("Location: dashboard.php");
                 }
             }else{
