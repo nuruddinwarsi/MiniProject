@@ -1,11 +1,3 @@
-<?php
-    require_once("connect.php");
-
-    if(!isset($_SESSION["uname"])){
-        header("Location: index.php");
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +7,6 @@
     <title>MINIPROJECT</title>
 </head>
 <body>
-    <h1>DASHBOARD</h1>
+    <h2>DEMO</h2>
 </body>
 </html>

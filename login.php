@@ -38,13 +38,13 @@
         if($row){
             if(password_verify($pw,$row['pw'])){
                 // echo "LOGIN SUCCESSFULL";
-                if($row['usr_role']=="admin"){
+                if($row['role']=="admin"){
                     // echo "ADMIN";
-                    $_SESSION["role"]=$row['usr_role'];
+                    $_SESSION["role"]=$row['role'];
                     header("Location: adminpage.php");
                 }else{
                     // echo "CUSTOMER";
-                    $_SESSION["role"] = $row['usr_role'];
+                    $_SESSION["role"] = $row['role'];
                     header("Location: dashboard.php");
                 }
             }else{
