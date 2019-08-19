@@ -89,17 +89,29 @@
             </fieldset>
             <fieldset id="secondary">
                 <legend>Secondary Details</legend>
-                <!-- <label for="sec_fname">sec fname</label>
-                <input type="text" name="sec_fname" id="sec_fname"><br>
-                <label for="sec_lname">sec lname</label>
-                <input type="text" name="sec_lname" id="sec_lname"><br>
-                <label for="sec_reln">sec reln</label>
-                <input type="text" name="sec_reln" id="sec_reln"><br>
-                <label for="sec_email">sec email</label>                
-                <input type="text" name="sec_email" id="sec_email"><br>
-                <label for="sec_phone">sec phone</label>
-                <input type="text" name="sec_phone" id="sec_phone"><br> -->
-                <input type="checkbox" name="check" id="check" onclick="load()">Check if secondary address is same as primary address<br>
+                <div class="form-group">
+                    <label for="sec_fname">First Name</label>
+                    <input type="text" name="sec_fname" id="sec_fname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sec_lname">Last Name</label>
+                    <input type="text" name="sec_lname" id="sec_lname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sec_reln">Relationship</label>
+                    <input type="text" name="sec_reln" id="sec_reln" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sec_email">Email</label>
+                    <input type="email" name="sec_email" id="sec_email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sec_phone">Phone number</label>
+                    <input type="text" name="sec_phone" id="sec_phone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input  type="checkbox" name="check" id="check" onclick="load()">Check if secondary address is same as primary address
+                </div>
                 <div class="form-group">
                 <label for="sec_street">sec street</label>
                 <input type="text" name="sec_street" id="sec_street" class="form-control">
@@ -156,14 +168,11 @@
         $sec_city = $_POST["sec_city"];
         $sec_state = $_POST["sec_state"];
         $sec_zip = $_POST["sec_zip"];
-
-
-        // SECONDARY TABLE
-        // $sec_fname = $_POST["sec_fname"];
-        // $sec_lname = $_POST["sec_lname"];
-        // $sec_reln = $_POST["sec_reln"];
-        // $sec_email = $_POST["sec_email"];
-        // $sec_phone = $_POST["sec_phone"];
+        $sec_fname = $_POST["sec_fname"];
+        $sec_lname = $_POST["sec_lname"];
+        $sec_reln = $_POST["sec_reln"];
+        $sec_email = $_POST["sec_email"];
+        $sec_phone = $_POST["sec_phone"];
 
         // EMPTY VALLIDATION
         if(empty($uname) || empty($email) || empty($pw) || empty($fname) || empty($lname) || empty($tcode) 
@@ -245,10 +254,12 @@
        $sql = "INSERT INTO users(uname,email,pw,role,fname,lname,tcode,h_phone) 
        VALUES ('$uname','$email','$hashed_pw','$role','$fname','$lname','$tcode','$h_phone')";
 
-       $sql1 = "INSERT INTO address(uid,building,street,city,state,zip,sec_street,sec_city,sec_state,sec_zip) 
+       $sql1 = "INSERT INTO address(uid,building,street,city,state,zip,sec_street,sec_city,sec_state,sec_zip,
+       sec_fname,sec_lname,sec_reln,sec_email,sec_phone) 
        VALUES(
         (SELECT uid FROM users WHERE uname='$uname'),
-        '$building','$street','$city','$state','$zip','$sec_street','$sec_city','$sec_state','$sec_zip'
+        '$building','$street','$city','$state','$zip','$sec_street','$sec_city','$sec_state','$sec_zip','$sec_fname',
+        '$sec_lname','$sec_reln','$sec_email','$sec_phone'
        )";
 
        $res = $mysqli->query($sql);
