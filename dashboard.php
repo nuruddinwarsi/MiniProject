@@ -19,39 +19,56 @@
     <title>MINIPROJECT</title>
 </head>
 <body>
-    <h2>DASHBOARD</h2>
-    WELCOME <?php echo $_SESSION['uname'] ?>
-    <a href="logout.php">Logout</a>
+            <div class="container">
+                <div class="jumbotron">
+                    <h2>DASHBOARD</h2>
+                    WELCOME 
+                    <?php echo $_SESSION['uname'] ;
+                        $uid =$_REQUEST["uid"];
+                        $uname = $_SESSION["uname"];
+                        $sql = "SELECT * FROM users WHERE uid=$uid";
+                        $res = $mysqli->query($sql);
+                        while($row = $res->fetch_array()){  
+                    ?>
+                    <a href="logout.php" class="btn btn-info">Logout</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-12">
+                   <h2 class="text-center">USER INFORMATION</h2>
+                   <div class="col-md-12">
+                       <h3 class="text-center">BASIC</h3>
+                       <div class="col-md-6">
+                           <div class="col-md-6">
+                               <p>ID</p>
+                               <p>First Name</p>
+                               <p>Last Name</p>
+                               <p>Email</p>
+                           </div>
+                           <div class="col-md-6">
+                               <p><?php echo $row['uid']?></p>
+                               <p><?php echo $row['fname']?></p>
+                               <p><?php echo $row['lname']?></p>
+                               <p><?php echo $row['email']?></p>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="col-md-6">
+                               <p>T-CODE</p>
+                               <p>Phone no</p>
+                               <p>Home Phone</p>
+                           </div>
+                           <div class="col-md-6">
+                                <p><?php echo $row['tcode']?></p>
+                                <p><?php echo $row['uname']?></p>
+                                <p><?php echo $row['h_phone']?></p>
+                           </div>
+                       </div>
+                   </div>
+                </div>                
+            </div>
+            <?php
+            }
+            ?>
 </body>
 </html>
-<?php
-    $uid =$_REQUEST["uid"];
-    // echo $id;
-    $uname = $_SESSION["uname"];
-    $sql = "SELECT * FROM users WHERE uid=$uid";
-    $res = $mysqli->query($sql);
-    echo "<div class='container'>";
-    echo "<div class='jumbotron'>";
-    echo "<table class='row' border=1>
-            <tr>
-                <th>UNAME</th>
-                <th>EMAIL</th>
-                <th>FNAME</th>
-                <th>LNAME</th>
-                <th>ROLE</th>
-                <th>TCODE</th>
-                <th>PHONE</th>
-            </tr>";
-    while($row = $res->fetch_array()){  
-        echo "<tr scope='row'>
-                <td>$row[1]</td>
-                <td>$row[2]</td>
-                <td>$row[5]</td>
-                <td>$row[6]</td>
-                <td>$row[4]</td>
-                <td>$row[7]</td>
-                <td>$row[8]</td>
-            </tr>";
-    }
-    echo "</div></div>";
-?>
