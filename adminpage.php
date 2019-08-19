@@ -16,15 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="address.js"></script>
-        <script type="text/javascript">
-            $.ajax({
-                url:'display.php',
-                type:'POST',
-                success:function(responsedata){
-                    $('#response').html(responsedata);   
-                }
-            });  
-        </script>
+        <script type="text/javascript" src="ajaxScript.js"></script>
     <title>MINIPROJECT</title>
 </head>
 <body>

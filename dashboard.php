@@ -25,8 +25,10 @@
 </body>
 </html>
 <?php
+    $uid =$_REQUEST["uid"];
+    // echo $id;
     $uname = $_SESSION["uname"];
-    $sql = "SELECT * FROM users WHERE uname=$uname";
+    $sql = "SELECT * FROM users WHERE uid=$uid";
     $res = $mysqli->query($sql);
     echo "<div class='container'>";
     echo "<div class='jumbotron'>";
