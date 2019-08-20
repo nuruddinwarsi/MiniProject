@@ -1,7 +1,12 @@
-h4 {
+h3 {
+  padding: 1% 1%;
   background-color: #d3d3d3;
 }
-h3 {
+h2 {
+  padding: 1% 1%;
   background-color: aqua;
 }
 /* background-color: #c0c0c0; */
+.mycontent-left {
+  border-right: 1px solid #d3d3d3;
+}

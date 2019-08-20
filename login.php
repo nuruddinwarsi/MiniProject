@@ -60,7 +60,8 @@
                     // echo "CUSTOMER";
                     $_SESSION["role"] = $row['role'];
                     $_SESSION["uname"]=$row['uname'];
-                    header("Location: dashboard.php");
+                    $uid = $row['uid'];
+                    header("Location: dashboard.php?uid=$uid");
                 }
             }else{
                 echo "LOGIN FAILED";

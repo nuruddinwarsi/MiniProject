@@ -15,8 +15,8 @@
     <title>MINIPROJECT</title>
 </head>
 <body>
-<div class="jumbotron">
 <div class="container">
+<div class="jumbotron">
    
         <h1>WELCOME TO MINIPROJECT</h1>
         <a href="login.php" class="btn btn-primary">LOGIN</a>
