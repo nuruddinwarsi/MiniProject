@@ -163,7 +163,6 @@
 
 <?php
    
-
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         // USERS TABLE
         $uname =$_POST["uname"];

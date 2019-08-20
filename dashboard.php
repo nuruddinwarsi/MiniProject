@@ -1,9 +1,7 @@
 <?php
     session_start();
     require_once("connect.php");
-    // echo $_SESSION['uname'];
     if(!isset($_SESSION["role"])){
-        // echo "<script type='text/javascript'>alert('Please login first');</script>";
         header("Location: index.php");
     }
 ?>
@@ -23,6 +21,7 @@
             <div class="container jumbotron">
                 <!-- <div class="jumbotron"> -->
                     <h1>DASHBOARD</h1>
+                    <hr>
                     <strong> WELCOME 
                     <?php echo $_SESSION['uname'] ;
                         $uid =$_REQUEST["uid"];
@@ -32,10 +31,9 @@
                         $res = $mysqli->query($sql);
                         while($row = $res->fetch_assoc()){  
                     ?></strong>
-                    <br>
-                    <div class="btn-group" role="group">
+                    <div class="btn-group pull-right" role="group">
                         <a href="adminpage.php"  class="btn btn-primary">Back</a>
-                        <button disabled="disabled" class="btn btn-success">OR</button>
+                        <button disabled="disabled" class="btn btn-light">OR</button>
                         <a href="logout.php" class="btn btn-danger">Logout</a>
                     </div>
                    
