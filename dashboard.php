@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="style.css">
     <title>MINIPROJECT</title>
 </head>
 <body>
@@ -35,6 +35,7 @@
                     <br>
                     <div class="btn-group" role="group">
                         <a href="adminpage.php"  class="btn btn-primary">Back</a>
+                        <button disabled="disabled" class="btn btn-success">OR</button>
                         <a href="logout.php" class="btn btn-danger">Logout</a>
                     </div>
                    

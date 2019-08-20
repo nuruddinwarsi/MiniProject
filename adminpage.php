@@ -12,11 +12,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-wth, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="address.js"></script>
         <script type="text/javascript" src="ajaxScript.js"></script>
+        
     <title>MINIPROJECT</title>
 </head>
 <body>
@@ -24,113 +25,130 @@
     <div class="container">
             <div class="jumbotron">
             <h2>ADMIN FORM</h2>
+            <a href="logout.php" class="btn btn-danger pull-right">Logout</a>
             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-            <fieldset id="user">
-                <legend>User Details</legend>
-                <div class="form-group">
-                <label for="uname">Username</label>
-                <input class="form-control" type="text" name="uname" id="uname">
+            <!-- USER DETAILS -->
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset id="user">
+                        <legend>User Details</legend>
+                        <div class="form-group">
+                            <label for="uname">Username</label>
+                            <input class="form-control" type="text" name="uname" id="uname">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw">Password</label>
+                            <input type="password" name="pw" id="pw" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw2">Reenter Password</label>
+                            <input type="password" name="pw2" id="pw2" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="fname">First name</label>
+                            <input type="text" name="fname" id="fname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" id="lname" class="form-control">
+                        </div>  
+                        <div class="form-group">                
+                            <label for="tcode">T-code</label>
+                            <input type="text" name="tcode" id="tcode" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="h_phone">Enter Phone no</label>
+                            <input type="text" name="h_phone" id="h_phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" name="role" id="role" class="form-control">
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control">
+                <div class="col-md-6">
+                    <fieldset id="address">
+                        <legend>Address</legend>
+                        <div class="form-group">
+                            <label for="building">Building</label>
+                            <input type="text" name="building" class="form-control">
+                        </div> 
+                        <div class="form-group">
+                            <label for="street">Street</label>
+                            <input type="text" name="street" id="street" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">Zip code</label>
+                            <input type="text" name="zip"id="zip" class="form-control">
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="form-group">
-                <label for="pw">Password</label>
-                <input type="password" name="pw" id="pw" class="form-control">
+            </div>
+           <div class="row">
+            <!-- ADDRESS -->
+                <div class="col-md-6">
+                    <fieldset id="secondary">
+                        <legend>Secondary Details</legend>
+                        <div class="form-group">
+                            <label for="sec_fname">First Name</label>
+                            <input type="text" name="sec_fname" id="sec_fname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_lname">Last Name</label>
+                            <input type="text" name="sec_lname" id="sec_lname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_reln">Relationship</label>
+                            <input type="text" name="sec_reln" id="sec_reln" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_email">Email</label>
+                            <input type="email" name="sec_email" id="sec_email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_phone">Phone number</label>
+                            <input type="text" name="sec_phone" id="sec_phone" class="form-control">
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="form-group">
-                <label for="pw2">Reenter Password</label>
-                <input type="password" name="pw2" id="pw2" class="form-control">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Secondary Address</legend>
+                        <div class="form-group form-label">
+                            <input  type="checkbox" name="check" id="check" onclick="load()">Check if secondary address is same as primary address
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_street">sec street</label>
+                            <input type="text" name="sec_street" id="sec_street" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_city">sec city</label>
+                            <input type="text" name="sec_city" id="sec_city" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_state">sec state</label>
+                            <input type="text" name="sec_state" id="sec_state" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sec_zip">sec zip</label>                
+                            <input type="text" name="sec_zip" id="sec_zip" class="form-control">
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="form-group">
-                <label for="fname">First name</label>
-                <input type="text" name="fname" id="fname" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" name="lname" id="lname" class="form-control">
-                </div>  
-                <div class="form-group">                
-                <label for="tcode">T-code</label>
-                <input type="text" name="tcode" id="tcode" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="h_phone">Enter Phone no</label>
-                <input type="text" name="h_phone" id="h_phone" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" name="role" id="role" class="form-control">
-                </div>
-            </fieldset>
-            <fieldset id="address">
-                <legend>Address</legend>
-                <div class="form-group">
-                <label for="building">Building</label>
-                <input type="text" name="building" class="form-control">
-                </div> 
-                <div class="form-group">
-                <label for="street">Street</label>
-                <input type="text" name="street" id="street" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" name="state" id="state" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="zip">Zip code</label>
-                <input type="text" name="zip"id="zip" class="form-control">
-                </div>
-            </fieldset>
-            <fieldset id="secondary">
-                <legend>Secondary Details</legend>
-                <div class="form-group">
-                    <label for="sec_fname">First Name</label>
-                    <input type="text" name="sec_fname" id="sec_fname" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="sec_lname">Last Name</label>
-                    <input type="text" name="sec_lname" id="sec_lname" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="sec_reln">Relationship</label>
-                    <input type="text" name="sec_reln" id="sec_reln" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="sec_email">Email</label>
-                    <input type="email" name="sec_email" id="sec_email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="sec_phone">Phone number</label>
-                    <input type="text" name="sec_phone" id="sec_phone" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input  type="checkbox" name="check" id="check" onclick="load()">Check if secondary address is same as primary address
-                </div>
-                <div class="form-group">
-                <label for="sec_street">sec street</label>
-                <input type="text" name="sec_street" id="sec_street" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="sec_city">sec city</label>
-                <input type="text" name="sec_city" id="sec_city" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="sec_state">sec state</label>
-                <input type="text" name="sec_state" id="sec_state" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="sec_zip">sec zip</label>                
-                <input type="text" name="sec_zip" id="sec_zip" class="form-control">
-                </div>
-            </fieldset>
-            <input type="submit" value="Submit" id="submit" class="btn btn-primary">
-            <a href="logout.php" class="btn btn-danger">Logout</a>
+           </div>
+            <input type="submit" value="Submit" id="submit" class="btn btn-success">
         </form>
             <hr>
             <div id="response">
