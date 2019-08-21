@@ -1,3 +1,9 @@
+<?php
+  if(!empty($_REQUEST['message'])){
+    echo "<script>alert('LOGIN FAILED')</script>";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

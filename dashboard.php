@@ -32,8 +32,12 @@
                         while($row = $res->fetch_assoc()){  
                     ?></strong>
                     <div class="btn-group pull-right" role="group">
-                        <a href="adminpage.php"  class="btn btn-primary">Back</a>
-                        <button disabled="disabled" class="btn btn-light">OR</button>
+                    <?php
+                        if($_SESSION["role"]=='admin'){
+                            echo " <a href='adminpage.php'  class='btn btn-primary'>Back</a>
+                            <button disabled='disabled' class='btn btn-light'>OR</button>";
+                        }
+                    ?>
                         <a href="logout.php" class="btn btn-danger">Logout</a>
                     </div>
                    

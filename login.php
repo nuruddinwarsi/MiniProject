@@ -64,7 +64,8 @@
                     header("Location: dashboard.php?uid=$uid");
                 }
             }else{
-                echo "LOGIN FAILED";
+                header("Location: index.php?message='LOGIN FAILED'");
+                // echo "LOGIN FAILED";
             }
         }else{
             echo "Invalid username or password";
