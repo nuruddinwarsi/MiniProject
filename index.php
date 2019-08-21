@@ -1,7 +1,9 @@
 <?php
+  session_start();
   if(!empty($_REQUEST['message'])){
     echo "<script>alert('LOGIN FAILED')</script>";
   }
+  session_destroy();
 ?>
 
 <!DOCTYPE html>

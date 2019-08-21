@@ -282,11 +282,7 @@
        $res = $mysqli->query($sql);
        $res1 = $mysqli->query($sql1);
 
-       if($res && $res1){
-            echo "<script type='text/javascript'>alert('SUCCESSFUL');</script>";
-       }else{
-            echo "<script type='text/javascript'>alert('FAILED');</script>";
-       }
+       
        
     }
     ?>
